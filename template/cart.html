@@ -1,0 +1,27 @@
+<h1>cart page</h1>
+ 
+  
+<div class="cart-items">  
+    <h2>Cart Items</h2>  
+    <ul>  
+      {% for item in order_items %}  
+        <li>  
+          <div class="item-info">  
+            <h3>{{ item.item.name }}</h3>  
+            <p>Quantity: {{ item.quantity }}</p>  
+            <p>Price: {{ item.item.price }}</p>  
+            <p>Total: {{ item.get_total_item_price }}</p>  
+          </div>  
+        </li>  
+      {% empty %}  
+        <li>No items in cart</li>  
+      {% endfor %}  
+    </ul>  
+    <p>Total Cart Value: {{ total_cart_value }}</p>  
+    <form action="{% url 'CheckoutView' %}" method="POST">  
+        {% csrf_token %}  
+        {{ form.as_p }}
+        <button  class="btn btn-primary add-to-cart">Check out</button>  
+    </form> 
+  </div>  
+  

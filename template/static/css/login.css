@@ -1,0 +1,115 @@
+/* Global Styles */  
+body {  
+    font-family: Arial, sans-serif;  
+    margin: 0;  
+    padding: 0;  
+    background-color: #f9f9f9;  
+  }  
+    
+  .form-content {  
+    max-width: 100%;  
+    margin: 40px auto;  
+    padding: 20px;  
+    background-color: #fff;  
+    border: 1px solid #ddd;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+    border-radius: 10px;  
+  }  
+    
+  .container {  
+    max-width: 1200px;  
+    margin: 40px auto;  
+    padding: 20px;  
+  }  
+    
+  .card {  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+    border: none;  
+    border-radius: 10px;  
+    background-color: #fff;  
+    padding: 20px;  
+  }  
+    
+  .card-header {  
+    background-color: #333;  
+    color: #fff;  
+    padding: 10px;  
+    border-bottom: 1px solid #ddd;  
+    border-radius: 10px 10px 0 0;  
+  }  
+    
+  .card-body {  
+    padding: 20px;  
+  }  
+    
+  .form-row {  
+    margin-bottom: 20px;  
+  }  
+    
+  .form-group {  
+    margin-bottom: 20px;  
+  }  
+    
+  label {  
+    font-weight: bold;  
+    margin-bottom: 10px;  
+  }  
+    
+  input[type="text"], input[type="password"] {  
+    width: 100%;  
+    padding: 10px;  
+    margin-bottom: 20px;  
+    border: 1px solid #ccc;  
+    border-radius: 5px;  
+  }  
+    
+  button[type="submit"] {  
+    width: 100%;  
+    padding: 10px;  
+    background-color: #333;  
+    color: #fff;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+  }  
+    
+  button[type="submit"]:hover {  
+    background-color: #444;  
+  }  
+    
+  .card-footer {  
+    background-color: #f9f9f9;  
+    padding: 10px;  
+    border-top: 1px solid #ddd;  
+    border-radius: 0 0 10px 10px;  
+  }  
+    
+  .small {  
+    font-size: 14px;  
+    color: #666;  
+  }  
+    
+  a {  
+    text-decoration: none;  
+    color: #337ab7;  
+  }  
+    
+  a:hover {  
+    color: #23527c;  
+  }  
+    
+  /* Responsive Styles */  
+  @media (max-width: 768px) {  
+   .col-lg-5 {  
+      flex: 0 0 80%;  
+      max-width: 80%;  
+    }  
+  }  
+    
+  @media (max-width: 480px) {  
+   .col-lg-5 {  
+      flex: 0 0 100%;  
+      max-width: 100%;  
+    }  
+  }  
+  

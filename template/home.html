@@ -1,0 +1,54 @@
+<!-- item_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item List</title>
+    <!-- Bootstrap CSS link (adjust the path as per your setup) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">  
+            <a href="{% url 'cart' %}" class="navbar-brand">Cart <i class="fas fa-shopping-cart"></i></a>
+        </nav>
+        <h1>Item List</h1>
+
+        {% if items %}
+            {% regroup items by category as item_list_by_category %}
+
+            {% for category_items in item_list_by_category %}
+                {% if category_items.grouper == 'W' %}
+                    <h2>Women's Items</h2>
+                {% else %}
+                    <h2>{{ category_items.grouper }}</h2>
+                {% endif %}
+                <div class="row">
+                    {% for item in category_items.list %}
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card">
+                                <img class="card-img-top" src="{% static 'images/item' %}{{ forloop.counter }}.jpg" alt="Item Image">
+                                <div class="card-body">
+                                    <h5 class="card-title" name="item.name">{{ item.name }}</h5>
+                                    <p class="card-text" name="">Price: {{ item.price }}</p>
+                                    <p class="card-text">{{ item.description }}</p>
+                                    <form action="{% url 'add_to_cart' item.slug %}" method="POST">  
+                                        {% csrf_token %}  
+                                        <button data-item-id="{{ item.slug}}" class="btn btn-primary add-to-cart">Add to Cart</button>  
+                                    </form> 
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No items available.</p>
+        {% endif %}
+    </div>
+
+   
+</body>
+</html>
